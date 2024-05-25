@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+body {
+  background-color: #f7f7f7;
+  font-family: Nunito;
+}
+
+.navbar-area{
+  background-color: #FFFFFF;
+}
+
+a{
+  font-family: Nunito;
+  font-weight: 700;
+}
+
+.inputssearch {
+  margin-bottom: 2%;
+  background-color: #FFFFFF;
+  border-left: solid 1px #C1C1C1;
+  border-top: solid 1px #C1C1C1;
+}
+
+option{
+  color: black;
+  font-weight: 600;
+}
+ /* START AboutUs START */
+.aboutPosition {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aboutRow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gradient-btn {
+  background-image: linear-gradient(to right, #8ca8f5 0%, #0c4feb 50%, #417fef 100%);
+  background-size: 200% auto;
+  overflow: hidden;
+}
+
+.gradient-btn-2 {
+  background-image: linear-gradient(to right, #33c8c1 0%, #119bd2 50%, #33c8c1 100%);
+}
+
+.gradient-btn:hover {
+  background-position: right center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.main-btn {
+  display: inline-block;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 500;
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  transition-duration: 300ms;
+  --bg-opacity: 1;
+  background-color: #3182ce;
+  background-color: rgba(49, 130, 206, var(--bg-opacity));
+  border-radius: 0.5rem;
+}
+
+.section-title .line {
+  background: linear-gradient(#417fef 0%, #EFF3FE 100%);
+  width: 10rem;
+  height: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-title .title {
+  font-size: 32px;
+  padding-top: 0.5rem;
+  font-weight: 700;
+}
+
+.section-title .title span {
+  font-weight: 400;
+}
+
+
+
+.about-shape-1 {
+  z-index: -1;
+  width: 35%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.about-shape-2 {
+  z-index: -1;
+  width: 35%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+/* END AboutUs END */
+
+.video-icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  --bg-opacity: 1;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  border-radius: 9999px;
+  --text-opacity: 1;
+  color: #FE7A7B;
+  color: rgba(254, 122, 123, var(--text-opacity));
+}
+
+.single-counter {
+  width: 155px;
+  height: 120px;
+  border-radius: 60px;
+  position: relative;
+  z-index: 10;
+  margin-top: 4rem;
+}
+
+.single-counter::before {
+  content: '';
+  border-radius: 60px;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  --transform-rotate: -45deg;
+}
+
+.counter-color-1::before {
+  background-image: linear-gradient(#33c8c1 0%,#119bd2 100%);
+}
+
+.counter-color-2::before {
+  background-image: linear-gradient(#fe8464 0%,#fe6e9a 100%);
+}
+
+.counter-color-3::before {
+  background-image: linear-gradient(#361cc1 0%,#2e82ef 100%);
+}
+
+
+.backgroundStats {
+  background-image: url(./assets/images/bg.jfif);
+  background-size: cover;
+}
+
+.casa{
+  min-width: 280px;
+  max-width: 280px;
+  min-height: 210px;
+  height: max-content;
+  width: calc(100% - 0px);
+  border-radius: 7px;
+  background-size: cover;
+}
+
