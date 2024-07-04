@@ -2,6 +2,35 @@ const { Router } = require('express');
 const router = Router();
 const { dbBases } = require('../controllers/controllers');
 const { Propertie, Agent } = require('../db');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function(req, file, cb) {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    }
+});
+
+const upload = multer({ storage: storage });
+
+router.get('/uploads/:filename', (req, res) => {
+    const { filename } = req.params;
+    const filePath = path.join(__dirname, '..', '..', 'uploads', filename);
+    console.log(`Requesting file: ${filePath}`);
+    
+    fs.access(filePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.log('filename',req.params.filename);
+            console.error(`File not found: ${filePath}`);
+            return res.status(404).send('File not found');
+        }
+        res.sendFile(filePath);
+    });
+});
 
 router.get('', async(req, res) => {
     try{
@@ -29,17 +58,18 @@ router.get('/:id', async(req, res) => {
     }
 });
 
-router.post('', async (req, res) => {
+router.post('', upload.array('images', 10), async (req, res) => {
     try{
-        const { name, zone, price, description, image, houseType, agentId } = req.body;
-        
-        if ( name && zone && price && description && image ) {
+        const { name, zone, price, description, houseType, agentId } = req.body;
+        const imagePaths = req.files.map(file => `/uploads/${file.filename}`);
+
+        if ( name && zone && price && description && imagePaths.length > 0 ) {
             const newBase = await Propertie.create({
                 name,
                 zone,
                 price,
                 description,
-                image,
+                image: imagePaths.join(','),
                 houseType,
             });
             if (agentId) {

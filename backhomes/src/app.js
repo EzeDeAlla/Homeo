@@ -3,6 +3,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
+const path = require('path');
+const { clientId, issuerBaseUrl, siteUrl, secret, redirectUrl } = process.env;
 
 require('dotenv').config();
 
@@ -25,6 +27,26 @@ server.use((req, res, next) => {
 });
 
 server.use('/', routes);
+const filePath = path.join(__dirname, 'uploads');
+server.use('/uploads', express.static(filePath));
+
+const {
+setupKinde,
+protectRoute,
+getUser,
+} = require("@kinde-oss/kinde-node-express");
+
+const config = {
+  clientId: clientId,
+  issuerBaseUrl: issuerBaseUrl,
+  siteUrl: siteUrl,
+  secret: secret,
+  redirectUrl: redirectUrl,
+  grantType: "CLIENT_CREDENTIALS", //or CLIENT_CREDENTIALS or PKCE
+  unAuthorisedUrl: "http://localhost:3000/unauthorised",
+  postLogoutRedirectUrl: "http://localhost:3000"
+};
+  setupKinde(config, server);
 
 server.use((err, req, res, next) => {
    const status = err.status || 500;

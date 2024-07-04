@@ -4,7 +4,7 @@ import highResolutionImage from '../../assets/images/pex.jpg';
 import PropertieCard from "../PropertieCard/PropertieCard";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { GET_ALL_PROPERTIES, getProperties } from "../redux/actions/actions";
+import { GET_ALL_PROPERTIES, getProperties } from "../../redux/actions/actions";
 import { HiOutlineRefresh } from 'react-icons/hi';
 
 const Properties = () => {
@@ -96,7 +96,7 @@ const Properties = () => {
                               zone={e.zone}
                               price={e.price}
                               description={e.description}
-                              image={e.image}
+                              image={e.image.split(',')[0]}
                               />
                         ))
                     ) : (

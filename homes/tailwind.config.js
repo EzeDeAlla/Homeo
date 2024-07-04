@@ -21,7 +21,7 @@ module.exports = {
       },
 
       colors: {
-        'col-blue': '#417fef',
+        'col-blue': '#417FEF',
         'col-redlight': '#FE7A7B'
       }
     },
