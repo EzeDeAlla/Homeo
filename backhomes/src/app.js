@@ -44,7 +44,7 @@ const config = {
   redirectUrl: redirectUrl,
   grantType: "CLIENT_CREDENTIALS", //or CLIENT_CREDENTIALS or PKCE
   unAuthorisedUrl: "http://localhost:3000/unauthorised",
-  postLogoutRedirectUrl: "http://localhost:3000" 
+  postLogoutRedirectUrl: "http://localhost:3000"
 };
   setupKinde(config, server);
 
