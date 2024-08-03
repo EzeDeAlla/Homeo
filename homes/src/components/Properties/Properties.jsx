@@ -111,7 +111,7 @@ const Properties = () => {
                     <h4>Price</h4>
                     <HiOutlineRefresh className="text-2xl font-light cursor-pointer" />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4"> 
                     <h4>Price Range</h4>
                     <div className="flex">
                         <input
